@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLECommerce - Static E-Commerce Website</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Header */
+
+.header{
+    background:#0D47A1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+.logo{
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:yellow;
+}
+
+.search input[type=text]{
+    width:350px;
+    padding:10px;
+    font-size:16px;
+}
+
+.search input[type=submit]{
+    padding:10px 18px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.menu{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* Categories */
+
+.category{
+    background:#1976D2;
+    display:flex;
+    justify-content:space-around;
+    padding:18px;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* Banner */
+
+.banner img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+/* Title */
+
+.title{
+    background:#1565C0;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:32px;
+    font-weight:bold;
+}
+
+/* Products */
+
+.products{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    gap:25px;
+    padding:40px;
+}
+
+.card{
+    width:250px;
+    background:white;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0px 0px 10px gray;
+    padding:20px;
+}
+
+.card img{
+    width:200px;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin-top:15px;
+}
+
+.price{
+    color:red;
+    font-size:26px;
+    margin:15px;
+}
+
+button{
+    background:#0D47A1;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+button:hover{
+    background:#1976D2;
+}
+
+/* Offers */
+
+.offers{
+    background:#FFF176;
+    text-align:center;
+    padding:40px;
+}
+
+.offers h2{
+    color:red;
+    margin-bottom:20px;
+}
+
+/* Services */
+
+.services{
+    display:flex;
+    justify-content:space-around;
+    background:#E8F5E9;
+    padding:35px;
+    font-size:22px;
+}
+
+/* Footer */
+
+.footer{
+    background:#263238;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.footer h2{
+    margin-bottom:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Header -->
+
+<div class="header">
+
+<div class="logo">
+KLE<span>Commerce</span>
+</div>
+
+<div class="search">
+
+<input type="text" placeholder="Search Products">
+
+<input type="submit" value="Search">
+
+</div>
+
+<div class="menu">
+
+Login |
+Register |
+Cart (0)
+
+</div>
+
+</div>
+
+<!-- Categories -->
+
+<div class="category">
+
+<div>Fashion</div>
+
+<div>Groceries</div>
+
+<div>Electronics</div>
+
+<div>Mobiles</div>
+
+<div>Appliances</div>
+
+<div>Beauty</div>
+
+<div>Books</div>
+
+<div>Sports</div>
+
+</div>
+
+<!-- Banner -->
+
+<div class="banner">
+
+<img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1400">
+
+</div>
+
+<!-- Product Title -->
+
+<div class="title">
+
+FEATURED PRODUCTS
+
+</div>
+
+<!-- Products -->
+
+<div class="products">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+
+<h3>Men's Shirt</h3>
+
+<p class="price">₹999</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400">
+
+<h3>Smart Phone</h3>
+
+<p class="price">₹15,999</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+
+<h3>Sports Shoes</h3>
+
+<p class="price">₹2,499</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+
+<h3>Smart Watch</h3>
+
+<p class="price">₹3,999</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+</div>
+
+<!-- Offers -->
+
+<div class="offers">
+
+<h2>Today's Special Offers</h2>
+
+<p>🎉 Flat 20% Discount on Fashion Products</p>
+
+<br>
+
+<p>🚚 Free Delivery Above ₹999</p>
+
+<br>
+
+<p>🛍 Buy One Get One on Selected Products</p>
+
+<br>
+
+<p>💳 Extra Cashback on Electronics</p>
+
+</div>
+
+<!-- Customer Services -->
+
+<div class="services">
+
+<div>↩ Easy Returns</div>
+
+<div>📞 24 × 7 Support</div>
+
+<div>🔒 Secure Payment</div>
+
+<div>🚚 Fast Delivery</div>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<h2>KLECommerce</h2>
+
+<p>
+
+Home |
+Products |
+About Us |
+Contact Us |
+Help
+
+</p>
+
+<br>
+
+<p>
+
+Copyright © 2026 KLECommerce. All Rights Reserved.
+
+</p>
+
+</div>
+
+</body>
+</html>
