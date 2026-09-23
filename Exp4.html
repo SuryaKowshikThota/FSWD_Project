@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple To-Do App</title>
+</head>
+
+<body>
+
+    <h2>My To-Do List</h2>
+
+    <input type="text" id="task" placeholder="Enter task">
+
+    <button onclick="addTask()">Add Task</button>
+
+    <button onclick="loadTasks()">Load API Tasks</button>
+
+    <ul id="list"></ul>
+
+
+    <script>
+
+        // Add Task
+        function addTask() {
+
+            let task = document.getElementById("task").value;
+
+            if (task == "") {
+                alert("Enter a task");
+                return;
+            }
+
+            // Get old tasks
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+            // Add new task
+            tasks.push(task);
+
+            // Save tasks
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+
+            // Show tasks
+            displayTasks();
+
+            // Clear input
+            document.getElementById("task").value = "";
+        }
+
+
+        // Display Tasks
+        function displayTasks() {
+
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+            let list = document.getElementById("list");
+
+            list.innerHTML = "";
+
+            for (let i = 0; i < tasks.length; i++) {
+
+                let li = document.createElement("li");
+
+                li.innerHTML = tasks[i];
+
+                list.appendChild(li);
+            }
+        }
+
+
+        // Fetch API
+        function loadTasks() {
+
+            fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
+
+            .then(function(response) {
+                return response.json();
+            })
+
+            .then(function(data) {
+
+                for (let i = 0; i < data.length; i++) {
+
+                    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+                    tasks.push(data[i].title);
+
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                }
+
+                displayTasks();
+            });
+        }
+
+
+        // Display saved tasks when page opens
+        displayTasks();
+
+    </script>
+
+</body>
+</html>
