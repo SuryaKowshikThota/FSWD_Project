@@ -79,6 +79,23 @@
             document.getElementById("message").innerText =
                 "Logged Out Successfully";
         }
+        // PAGE LOAD / REFRESH - 
+        window.onload = function () {
+
+            let sessionuser = sessionStorage.getItem("username");
+
+            if (sessionuser) {
+
+                document.getElementById("message").innerText =
+                    "Session Active: " + sessionuser;
+
+            } else {
+
+                document.getElementById("message").innerText =
+                    "No Session. Please Login.";
+            }
+        };
+
     </script>
 
 </body>
