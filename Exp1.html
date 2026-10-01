@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Architecture</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        .product {
+            border: 1px solid gray;
+            padding: 15px;
+            width: 250px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FRONTEND -->
+    <h1>Online Shopping Store</h1>
+
+    <div class="product">
+        <h2>Laptop</h2>
+        <p>Price: ₹50,000</p>
+
+        <button onclick="addToCart()">
+            Add to Cart
+        </button>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+
+        // DATABASE
+        // Simulating product data stored in database
+        var database = [
+            {
+                id: 101,
+                name: "Laptop",
+                price: 50000
+            }
+        ];
+
+
+        // BACKEND
+        // Backend receives the request and processes it
+        function addToCart() {
+
+            console.log("HTTP Request: Add product to cart");
+
+            var product = database[0];
+
+            // Backend processing
+            var cart = {
+                productId: product.id,
+                productName: product.name,
+                price: product.price,
+                quantity: 1
+            };
+
+
+            // HTTP RESPONSE
+            console.log("HTTP Response:", cart);
+
+
+            // FRONTEND DISPLAY
+            document.getElementById("result").innerHTML =
+                "Product Added to Cart<br>" +
+                "Product: " + cart.productName + "<br>" +
+                "Price: ₹" + cart.price + "<br>" +
+                "Quantity: " + cart.quantity;
+        }
+
+    </script>
+
+</body>
+</html>

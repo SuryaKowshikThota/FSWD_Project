@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Storage</title>
+    <style>
+        p{
+            color:red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="web-page">
+    <h2>Net Banking Login - Session Storage</h2>
+    
+    <div class="login-page">
+    Username:
+    <input type="text" id="username" placeholder="Enter Username">
+    <br><br>
+    
+    Password:
+    <input type="password" id="pswd" placeholder="Enter Password">
+    <br><br>
+
+    <button onclick="login()">Login</button>
+    <button onclick="showData()">Show Session Data</button>
+    <button onclick="logout()">Logout</button>
+    </div>
+    </div>
+
+    <p id="message"></p>
+    <p id="message2"></p>
+
+    <script>
+
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("pswd").value;
+            if (username === "kowshik" && password === "241")
+             {
+                sessionStorage.setItem("username", username);
+                document.getElementById("message").innerText =
+                    "Login Successful! Welcome " + username;
+                
+                
+
+            }else if(username==="demo@tradesphere.com" && password==="123456"){
+                sessionStorage.setItem("username",username);
+                document.getElementById("message").innerText=
+                   "Login Successfull welcome " + username ;
+            }else if(username===""&& password===""){
+                alert("Enter Username or Password");
+                return;
+            }
+             else {
+
+                document.getElementById("message").innerText =
+                    "Invalid Username or Password";
+            }
+        }
+
+
+        function showData() {
+
+            let sessionUser = sessionStorage.getItem("username");
+            document.getElementById("message").innerText =
+                "Session Storage: " + sessionUser 
+                ;
+        }
+
+
+        function logout() {
+
+            sessionStorage.removeItem("username");
+
+            document.getElementById("message").innerText =
+                "Logged Out Successfully";
+        }
+    </script>
+
+</body>
+</html>

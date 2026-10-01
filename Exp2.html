@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Stack HTTP Request Response</title>
+</head>
+
+<body>
+
+    <h2>Student Details</h2>
+
+    <button onclick="getStudent()">Get Student</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        // Simulating Backend Data
+        var student = {
+            id: 101,
+            name: "Ramesh",
+            course: "Full Stack Web Development"
+        };
+
+        function getStudent() {
+
+            // HTTP Request simulation
+            console.log("HTTP Request Sent");
+
+            // Backend processing simulation
+            setTimeout(function() {
+
+                // HTTP Response
+                var response = JSON.stringify(student);
+
+                // Convert JSON response into JavaScript object
+                var data = JSON.parse(response);
+
+                // Display response in frontend
+                document.getElementById("result").innerHTML =
+                    "Student ID: " + data.id +
+                    "<br>Student Name: " + data.name +
+                    "<br>Course: " + data.course;
+
+                console.log("HTTP Response Received");
+
+            }, 1000);
+        }
+
+    </script>
+
+</body>
+</html>

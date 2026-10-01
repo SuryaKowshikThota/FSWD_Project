@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage vs Session Storage</title>
+</head>
+
+<body>
+
+    <h2>Net Banking Login</h2>
+
+    <input type="text" id="username" placeholder="Enter Username">
+    <br><br>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <br><br>
+
+    <button onclick="login()">Login</button>
+    <button onclick="showData()">Show Storage Data</button>
+    <button onclick="logout()">Logout</button>
+
+    <p id="message"></p>
+
+    <script>
+
+        // LOGIN
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username === "kowshik" && password === "241")
+             {
+                localStorage.setItem("username", username);
+                document.getElementById("message").innerText =
+                    "Login Successful! Welcome " + username;
+
+            } else {
+
+                document.getElementById("message").innerText =
+                    "Invalid Username or Password";
+            }
+        }
+
+
+        // SHOW DATA
+        function showData() {
+
+            let localUser = localStorage.getItem("username");
+            document.getElementById("message").innerText =
+                "Local Storage: " + localUser 
+                ;
+        }
+
+
+        // LOGOUT
+        function logout() {
+
+            // Remove session only
+            sessionStorage.removeItem("username");
+
+            document.getElementById("message").innerText =
+                "Logged Out. Local Storage is still available.";
+        }
+
+
+        // PAGE LOAD / REFRESH
+        window.onload = function () {
+
+            let sessionUser = sessionStorage.getItem("username");
+
+            if (sessionUser) {
+
+                document.getElementById("message").innerText =
+                    "Session Active: " + sessionUser;
+
+            } else {
+
+                document.getElementById("message").innerText =
+                    "No Session. Please Login.";
+            }
+        };
+
+    </script>
+
+</body>
+</html>

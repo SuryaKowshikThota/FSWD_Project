@@ -2,25 +2,56 @@
 <html>
 <head>
     <title>Document</title>
+    <style>
+        h2{
+            background-color: blue;
+            text-align: center;
+        }
+        form{
+            
+        }
+        input{
+            margin-left: 15px;
+        }
+        .email{
+            margin-left: 30px;
+        }
+        .mobile{
+            margin-left:18px;
+        }
+        .button{
+            
+        }
+    </style>
 </head>
 <body>
     <h2>Login Form</h2>
-<form onclick="return loginValidation()">
+    <form onclick="return loginValidation()">
 
     Username:
-    <input type="text" id="username">
+    <input type="text" id="username" placeholder="Enter username">
     <br><br>
 
     Password:
-    <input type="password" id="password">
+    <input type="password" id="password" placeholder="Enter password">
     <br><br>
 
-    <input type="submit" value="Login">
+    Number :
+    <input class="mobile" type ="text" id="mobile" placeholder="Enter mobile number">
+    <br></br>
 
-</form>
+    Email :
+    <input class="email"type ="text" id="email" placeholder="Enter email address">
+    <br></br>
+
+    <input class="button" type="submit" value="Register">
+
+    </form>
 <script>
     function loginValidation(){
         var username = document.getElementById("username").value;
+        let mobile = document.getElementById("mobile").value;
+        var email = document.getElementById("email").value;
         let password= document.getElementById("password").value;
         if(username===""){
             alert("enter username");
@@ -28,6 +59,22 @@
         }
         if(password===""){
             alert("enter password");
+            return false;
+        }
+        if(mobile===""){
+            alert("enter mobile number");
+            return false;
+        }
+        if(email===""){
+            alert("enter email");
+            return false;
+        }
+        if(mobile.length>10){
+            alert("please enter a valid mobile number");
+            return false;
+        }
+        if(password.length==="8"){
+            alert("please enter only 8 characters");
             return false;
         }
         return true;
